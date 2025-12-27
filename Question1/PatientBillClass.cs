@@ -1,7 +1,7 @@
 /// <summary>
-/// Core entity
+/// Core entity containing all the feilds
 /// </summary>
-public class Bill
+public class PatientBill
 {
     public string BillId {get;set;}
     public string Patientname {get;set;}
@@ -18,7 +18,7 @@ public class Bill
 /// </summary>
 public class BillingService
 {
-    public static Bill LastBill;//static storage variable to store last bill
+    public static PatientBill LastBill;//static storage variable to store last bill
     public static bool HasLastBill=false;
 
     /// <summary>
@@ -26,7 +26,7 @@ public class BillingService
     /// </summary>
     public void NewBill()
     {
-        Bill bill=new Bill();
+        PatientBill bill=new PatientBill();
         System.Console.Write("Enter Bill Id: ");
         bill.BillId=Console.ReadLine();
         if (string.IsNullOrEmpty(bill.BillId))
@@ -125,7 +125,7 @@ public class BillingService
         {
             LastBill=null;
         HasLastBill=false;
-        System.Console.WriteLine("Cleared Last Bill.");
+        System.Console.WriteLine(" Last Bill Cleared.");
         }
         else
         {

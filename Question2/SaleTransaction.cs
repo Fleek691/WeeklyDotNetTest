@@ -132,8 +132,7 @@ public class Service
                 transaction.ProfitOrLossAmount = 0;
             }
 
-            transaction.ProfitMarginPercent =
-                (transaction.ProfitOrLossAmount / transaction.PurchaseAmount) * 100;
+            transaction.ProfitMarginPercent =(transaction.ProfitOrLossAmount / transaction.PurchaseAmount) * 100;
         }
 
         /// <summary>
