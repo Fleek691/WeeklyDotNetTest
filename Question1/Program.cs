@@ -1,4 +1,5 @@
-﻿public class Program
+﻿namespace MediSure{
+public class Program
 {
     /// <summary>
     /// Main method 
@@ -39,31 +40,4 @@
         
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}

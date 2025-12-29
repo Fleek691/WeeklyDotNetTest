@@ -1,4 +1,6 @@
-﻿class Program
+﻿namespace Sales
+{
+class Program
     {
         /// <summary>
         /// Main method 
@@ -45,3 +47,4 @@
             }while(choice!="4");//if user selects 4 then console app exits
         }
     }
+}

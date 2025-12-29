@@ -1,8 +1,11 @@
+namespace Sales
+{
 /// <summary>
 /// Core Entity Class
 /// </summary>
 public class SaleTransaction
 {
+    //get and set accessors for the fields
     public string InvoiceNo{get;set;}
     public string CustomerName{get;set;}
     public string ItemName {get;set;}
@@ -50,6 +53,7 @@ public class Service
         }
         transaction.Quantity=quantity;
 
+        // Prompt and Purchase selling amount
         System.Console.Write("Enter Purchase Amount: ");
         if(!int.TryParse(Console.ReadLine(),out int purchase) || purchase <= 0)
         {
@@ -157,3 +161,4 @@ public class Service
             Console.WriteLine("=============================================");
         }
     }
+}

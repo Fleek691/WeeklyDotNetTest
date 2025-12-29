@@ -1,3 +1,7 @@
+namespace MediSure
+{
+    
+
 /// <summary>
 /// Core entity containing all the feilds
 /// </summary>
@@ -149,8 +153,4 @@ public class BillingService
         
     }
 }
-
-
-
-
-
+}
