@@ -41,6 +41,7 @@ public class Service
         System.Console.Write("Enter Item Name: ");
         transaction.ItemName=Console.ReadLine();
 
+        // Prompt and validate quantity
         System.Console.Write("Enter Quantity: ");
         if(!int.TryParse(Console.ReadLine(),out int quantity) || quantity <=0)
         {
@@ -57,6 +58,7 @@ public class Service
         } 
         transaction.PurchaseAmount=purchase;
 
+        // Prompt and validate selling amount
         System.Console.Write("Enter Selling Amount: ");
         if(!int.TryParse(Console.ReadLine(),out int selling) || selling <= 0)
         {
@@ -65,11 +67,13 @@ public class Service
         } 
         transaction.SellingAmount=selling;
 
+        // Calculate profit/loss
         CalculateProfitLoss(transaction);
         LastTransaction=transaction;
         HasLastTransaction=true;
 
         System.Console.WriteLine("Transaction Saved!!");
+        // Print calculation results
         PrintCalculation(transaction);
     }
     /// <summary>
@@ -77,12 +81,14 @@ public class Service
     /// </summary>
     public void ViewLastTransaction()
         {
+            // Check if transaction exists
             if (!HasLastTransaction)
             {
                 Console.WriteLine("No transaction available,Please create new transaction");
                 return;
             }
 
+            // Display transaction details
             Console.WriteLine("================Last Transaction ================");
             Console.WriteLine($"InvoiceNo: {LastTransaction.InvoiceNo}");
             Console.WriteLine($"Customer: {LastTransaction.CustomerName}");
@@ -100,6 +106,7 @@ public class Service
     /// </summary>
     public void ReCalulate()
         {
+            // Check if transaction exists
             if (!HasLastTransaction)
             {
                 Console.WriteLine("No transaction available. Please create a new transaction first.");
@@ -107,13 +114,14 @@ public class Service
             }
 
             CalculateProfitLoss(LastTransaction);
+            // Print results
             PrintCalculation(LastTransaction);
         }
 
         /// <summary>
-        /// Method to calculate profit or loss margin
+        /// Calculates the profit or loss based on purchase and selling amounts.
         /// </summary>
-        /// <param name="transaction"></param>
+        /// <param name="transaction">The sale transaction to calculate for.</param>
         private void CalculateProfitLoss(SaleTransaction transaction)
         {
             if (transaction.SellingAmount > transaction.PurchaseAmount)
@@ -132,6 +140,7 @@ public class Service
                 transaction.ProfitOrLossAmount = 0;
             }
 
+            // Calculate profit margin percentage
             transaction.ProfitMarginPercent =(transaction.ProfitOrLossAmount / transaction.PurchaseAmount) * 100;
         }
 
